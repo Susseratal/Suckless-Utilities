@@ -11,10 +11,26 @@ If you have any questions about either of these, please feel free to ask, althou
 ~ Iain xx  
 
 Keybinds (only custom ones are here, everything else is deafult):  
+
+DWM:
         
-        Mod1 (Left Alt) == Mod4 (Windows key)
-        Mod + t == opens terminal
-        Mod + b == opens browser (opera by default)
-        Mod + d == opens discord (Much like browser, programs need to be installed)
-        Mod + Shift + t == tiling mode
-        Mod + Shift + d == decrease the number of windows on master in tiling mode
+        MOD is Left Windows Key
+        MOD + t == opens terminal
+        MOD + b == opens browser (opera by default)
+        MOD + d == opens discord (Much like browser, programs need to be installed)
+        MOD + Shift + t == tiling mode
+        MOD + Shift + d == decrease the number of windows on master in tiling mode
+
+ST:
+
+        Font: Source Code Pro #Monospaced
+        Font Size: 16 #medium size
+        Alpha: 0.9 #Dark
+        Default Foreground: 10 #Green
+        Default Background: 0 #Black
+
+        MOD + Shift + J == Scroll Down
+        MOD + Shift + K == Scroll Up
+        MOD + Shift + H == Zoom in
+        MOD + Shift + L == Zoom out
+        MOD + Shift + Home == Reset zoom level
