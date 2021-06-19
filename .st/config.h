@@ -5,8 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source Code Pro:pixelsize=16:antialias=true:autohint=false";
+static char *font = "Source Code Pro:pixelsize=15:antialias=true:autohint=false";
 static int borderpx = 2;
+/* static int borderpx = 0; */
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -95,6 +96,7 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.9;
+/* float alpha = 1.0; */
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -197,12 +199,11 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_L,           zoom,           {.f = +1} },
 	{ MODKEY|ShiftMask,     XK_H,           zoom,           {.f = -1} },
 	{ MODKEY|ShiftMask,     XK_Home,        zoomreset,      {.f =  0} },
-	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
-	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
+	{ MODKEY|ShiftMask,     XK_V,           selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_K,           kscrollup,      {.i = -1} },
 	{ MODKEY|ShiftMask,     XK_J,           kscrolldown,    {.i = -1} },
-	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 };
 

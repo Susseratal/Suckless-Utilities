@@ -7,6 +7,7 @@ ncmusic README
         |___/\__,_|\___|_|\_\_|\___||___/___/  \__,_|\__|_|_|_|\__|_|\___||___/
                                                                        
 Just my personal folder for my suckless utilities and configurations for such. Contains DWM configuration and ST configuration. Will update as I apply patches to both.  
+If you want to remove any patches, just run "patch -R < [patch name]"  
 If you have any questions about either of these, please feel free to ask, although I doubt I'll be able to answer them. List of changed keybinds follows:  
 ~ Iain xx  
 
