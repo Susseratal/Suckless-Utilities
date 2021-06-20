@@ -8,6 +8,7 @@ ncmusic README
                                                                        
 Just my personal folder for my suckless utilities and configurations for such. Contains DWM configuration and ST configuration. Will update as I apply patches to both.  
 If you want to remove any patches, just run "patch -R < [patch name]"  
+The volume control keys also invoke the dwmbar script so that the sound output in the bar updates. Please check to make sure you've got the dwmbar shell script somewhere on your machine and the config.h file has a full path to it, otherwise you'll get a compiler error. (The dwmbar script comes with the git repo)  
 If you have any questions about either of these, please feel free to ask, although I doubt I'll be able to answer them. List of changed keybinds follows:  
 ~ Iain xx  
 

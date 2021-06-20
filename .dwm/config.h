@@ -5,7 +5,7 @@
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows default 1*/
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
@@ -62,6 +62,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] = { "opera", NULL };
 static const char *discord[] = { "discord", NULL };
+static const char *dwmbar[] = { "/home/iain/shell/dwmbar.sh", NULL };
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL};
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL};
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
@@ -81,9 +82,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_F1,     spawn,          {.v = setvol } },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol } },
-	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol } },
-	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol } },
+	{ MODKEY,                       XK_F1,     spawn,          {.v = dwmbar } },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol} },
+	{ MODKEY,                       XK_F2,     spawn,          {.v = dwmbar } },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol} },
+	{ MODKEY,                       XK_F3,     spawn,          {.v = dwmbar } },
+	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol} },
+	{ MODKEY,                       XK_F4,     spawn,          {.v = dwmbar } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
