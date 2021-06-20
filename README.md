@@ -21,6 +21,10 @@ DWM:
         MOD + d == opens discord (Much like browser, programs need to be installed)
         MOD + Shift + t == tiling mode
         MOD + Shift + d == decrease the number of windows on master in tiling mode
+        MOD + F1 == Volume 100%
+        MOD + F2 == Volume -5%
+        MOD + F3 == Volume +5%
+        MOD + F4 == Volume 0%
 
 ST:
 
