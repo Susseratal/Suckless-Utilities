@@ -40,3 +40,5 @@ ST:
         MOD + Shift + H == Zoom in
         MOD + Shift + L == Zoom out
         MOD + Shift + Home == Reset zoom level
+        MOD + Control == Copy selected terminal text
+        MOD + Control == Paste selected terminal text
