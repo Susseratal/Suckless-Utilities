@@ -21,9 +21,10 @@ static const char col_pink1[]       = "#ff33ff";
 static const char col_green1[]      = "#008000";
 static const char col_green2[]      = "#00FF00";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
+	/*               fg          bg         border   */
 	[SchemeNorm] = { col_green2, col_black, col_gray2 },
-	[SchemeSel]  = { col_green2, col_black, col_green1},
+	[SchemeBar]  = { col_green2, col_black, col_green1},
+	[SchemeTag]  = { col_black, col_green2, col_green1},
 };
 
 /* tagging */
