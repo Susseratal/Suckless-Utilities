@@ -20,6 +20,7 @@ DWM:
         MOD + t == opens terminal
         MOD + b == opens browser (opera by default)
         MOD + d == opens discord (Much like browser, programs need to be installed)
+        MOD + q == kill current application
         MOD + Shift + t == tiling mode
         MOD + Shift + d == decrease the number of windows on master in tiling mode
         MOD + F1 == Volume 100%
