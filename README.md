@@ -21,8 +21,11 @@ DWM:
         MOD + b == opens browser (opera by default)
         MOD + d == opens discord (Much like browser, programs need to be installed)
         MOD + q == kill current application
+        MOD + F10 == dmenu
+        MOD + p == opens keepassxc (needs to be installed)
         MOD + Shift + t == tiling mode
         MOD + Shift + d == decrease the number of windows on master in tiling mode
+        MOD + space == Toggle window mode because floating mode sucks so I don't use it
         MOD + F1 == Volume 100%
         MOD + F2 == Volume -5%
         MOD + F3 == Volume +5%
