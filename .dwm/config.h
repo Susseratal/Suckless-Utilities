@@ -65,30 +65,42 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_green2, "-sb", col_green1, "-sf", col_black, NULL };
+/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_green2, "-sb", col_green1, "-sf", col_black, NULL }; */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_pink1, "-sb", col_pink1, "-sf", col_black, NULL };
 static const char *termcmd[] = { "st", NULL };
 static const char *browser[] = { "opera", NULL };
 static const char *discord[] = { "discord", NULL };
 static const char *keepass[] = { "keepassxc", NULL };
-static const char *music[] = { "py",  "~/Programming/ncmusic/src/main.py" };
-static const char *dwmbar[] = { "/home/iain/shell/dwmbar.sh", NULL };
+static const char *screenshot[] = { "scrot", NULL };
+static const char *gotop[] = { "st", "gotop", NULL };
+static const char *nemo[] = { "nemo", NULL };
+static const char *whatsapp[] = { "whatsdesk", NULL };
+static const char *music[] = { "st", "python", "/home/iain/Programming/ncmusic/src/main.py" };
+static const char *dwmbar[] = { "/home/iain/Shell/dwmbar.sh", NULL };
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL};
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL};
 static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *setvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "100%", NULL };
+static const char *setkbdon[] = { "brightnessctl", "--device='smc::kbd_backlight'", "set", "255", NULL };
+static const char *setkbdoff[] = { "brightnessctl", "--device='smc::kbd_backlight'", "set", "0", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_F10,    spawn,          {.v = dmenucmd } },
+	/*{ MODKEY,                       XK_F10,    spawn,          {.v = dmenucmd } },*/
+	{ MODKEY,                       XK_space,    spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = keepass } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = whatsapp } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = discord } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = music} },
+	{ MODKEY,                       XK_g,      spawn,          {.v = gotop} },
+	{ MODKEY,                       XK_n,      spawn,          {.v = nemo} },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -100,13 +112,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F3,     spawn,          {.v = dwmbar } },
 	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol} },
 	{ MODKEY,                       XK_F4,     spawn,          {.v = dwmbar } },
+	{ MODKEY,                       XK_F5,     spawn,          {.v = setkbdoff } },
+	{ MODKEY,                       XK_F6,     spawn,          {.v = setkbdon } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
+	/*{ MODKEY,                       XK_space,  setlayout,      {0} },*/
 	/*{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },*/
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
