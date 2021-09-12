@@ -95,7 +95,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.9;
+float alpha = 0.8;
 /* float alpha = 1.0; */
 
 /* Terminal colors (16 first used in escape sequence) */
@@ -132,7 +132,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 2;
+unsigned int defaultfg = 2; /* Green */
+/* unsigned int defaultfg = 13; */ /* Purple */
 unsigned int defaultbg = 0;
 static unsigned int defaultcs = 10;
 static unsigned int defaultrcs = 15;
@@ -198,7 +199,7 @@ static Shortcut shortcuts[] = {
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_L,           zoom,           {.f = +1} },
 	{ MODKEY|ShiftMask,     XK_H,           zoom,           {.f = -1} },
-	{ MODKEY|ShiftMask,     XK_Home,        zoomreset,      {.f =  0} },
+	{ MODKEY|ShiftMask,     XK_O,           zoomreset,      {.f =  0} },
 	{ MODKEY|ControlMask,   XK_c,           clipcopy,       {.i =  0} },
 	{ MODKEY|ControlMask,   XK_v,           selpaste,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_K,           kscrollup,      {.i = -1} },
