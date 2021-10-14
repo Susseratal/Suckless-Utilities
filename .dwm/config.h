@@ -97,12 +97,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = discord } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = music} },
 	{ MODKEY,                       XK_g,      spawn,          {.v = gotop} },
-<<<<<<< HEAD
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
-=======
 	{ MODKEY,                       XK_n,      spawn,          {.v = nemo} },
 	{ MODKEY|ShiftMask,             XK_v,      togglebar,      {0} },
->>>>>>> d87dc1579be7569ea16a88761a298194e51ada78
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
