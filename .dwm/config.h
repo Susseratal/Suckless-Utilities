@@ -23,8 +23,12 @@ static const char col_green2[]      = "#00FF00";
 static const char *colors[][3]      = {
 	/*               fg          bg         border   */
 	[SchemeNorm] = { col_green2, col_black, col_gray2 },
-	[SchemeBar]  = { col_green2, col_black, col_green1},
+	[SchemeBar]  = { col_green2, col_black, col_green1}, /* Green windows */
 	[SchemeTag]  = { col_black, col_green2, col_green1},
+
+	/* [SchemeNorm] = { col_pink1, col_black, col_gray2}, */
+	/* [SchemeBar]  = { col_pink1, col_black, col_pink1}, */ /* Pink windows */
+	/* [SchemeTag]  = { col_black, col_pink1, col_pink1}, */
 };
 
 /* tagging */
@@ -65,8 +69,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_green2, "-sb", col_green1, "-sf", col_black, NULL }; */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_pink1, "-sb", col_pink1, "-sf", col_black, NULL };
+/* static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_green2, "-sb", col_green1, "-sf", col_black, NULL }; */ /* Green Dmenu */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_pink1, "-sb", col_pink1, "-sf", col_black, NULL }; /* Pink Dmenu */
 static const char *termcmd[] = { "st", NULL };
 static const char *browser[] = { "opera", NULL };
 static const char *discord[] = { "discord", NULL };
@@ -93,7 +97,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = discord } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = music} },
 	{ MODKEY,                       XK_g,      spawn,          {.v = gotop} },
+<<<<<<< HEAD
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
+=======
+	{ MODKEY,                       XK_n,      spawn,          {.v = nemo} },
+	{ MODKEY|ShiftMask,             XK_v,      togglebar,      {0} },
+>>>>>>> d87dc1579be7569ea16a88761a298194e51ada78
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },

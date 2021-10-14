@@ -9,6 +9,7 @@ ncmusic README
 Just my personal folder for my suckless utilities and configurations for such. Contains DWM configuration and ST configuration. Will update as I apply patches to both.  
 If you want to remove any patches, just run "patch -R < [patch name]"  
 The volume control keys also invoke the dwmbar script so that the sound output in the bar updates. Please check to make sure you've got the dwmbar shell script somewhere on your machine and the config.h file has a full path to it, otherwise you'll get a compiler error. (The dwmbar script comes with the git repo)  
+I've made some tweaks so there are now two colour profiles. These do have to match up with the bashrc in order to look nice, but I'll update that too. Basically you can now swap between green on black with a pink dmenu and pink on black with a green dmenu. At the moment you have to use comments but I might make it a button push thing, if possible? Not sure how it would work though. 
 If you have any questions about either of these, please feel free to ask, although I doubt I'll be able to answer them. List of changed keybinds follows:  
 ~ Iain xx  
 
@@ -16,16 +17,17 @@ Keybinds (only custom ones are here, everything else is deafult):
 
 DWM:
         
-        MOD is Left Windows Key
+        MOD is Left Windows Key or Propellor/Command on Mac
         MOD + t == opens terminal
         MOD + b == opens browser (opera by default)
         MOD + d == opens discord (Much like browser, programs need to be installed)
-        MOD + q == kill current application
-        MOD + F10 == dmenu
+        MOD + m == opens music player (needs to be installed)
         MOD + p == opens keepassxc (needs to be installed)
-        MOD + Shift + t == tiling mode
-        MOD + Shift + d == decrease the number of windows on master in tiling mode
-        MOD + space == Toggle window mode because floating mode sucks so I don't use it
+        MOD + space == dmenu
+        MOD + q == kill current application
+        MOD + Shift + T == tiling mode
+        MOD + Shift + M == Single window mode
+        MOD + Shift + D == decrease the number of windows on master in tiling mode
         MOD + F1 == Volume 100%
         MOD + F2 == Volume -5%
         MOD + F3 == Volume +5%
@@ -43,6 +45,6 @@ ST:
         MOD + Shift + K == Scroll Up
         MOD + Shift + H == Zoom in
         MOD + Shift + L == Zoom out
-        MOD + Shift + Home == Reset zoom level
-        MOD + Control + C == Copy selected terminal text
-        MOD + Control + V == Paste selected terminal text
+        MOD + Shift + O == Reset zoom level
+        MOD + Control + c == Copy selected terminal text
+        MOD + Control + v == Paste selected terminal text
