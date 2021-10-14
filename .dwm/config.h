@@ -55,7 +55,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+	{ 0,                            KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
@@ -73,8 +73,6 @@ static const char *discord[] = { "discord", NULL };
 static const char *keepass[] = { "keepassxc", NULL };
 static const char *screenshot[] = { "scrot", NULL };
 static const char *gotop[] = { "st", "gotop", NULL };
-static const char *nemo[] = { "nemo", NULL };
-static const char *whatsapp[] = { "whatsdesk", NULL };
 static const char *music[] = { "st", "python", "/home/iain/Programming/ncmusic/src/main.py" };
 static const char *dwmbar[] = { "/home/iain/Shell/dwmbar.sh", NULL };
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL};
@@ -92,11 +90,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
-	{ MODKEY,                       XK_w,      spawn,          {.v = whatsapp } },
 	{ MODKEY,                       XK_d,      spawn,          {.v = discord } },
 	{ MODKEY,                       XK_m,      spawn,          {.v = music} },
 	{ MODKEY,                       XK_g,      spawn,          {.v = gotop} },
-	{ MODKEY,                       XK_n,      spawn,          {.v = nemo} },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -120,7 +116,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
-	/*{ MODKEY,                       XK_space,  setlayout,      {0} },*/
+	/*{ MODKEY|ShiftMask,             XK_space,  setlayout,      {0} },*/
 	/*{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },*/
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
@@ -128,15 +124,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_F1,                      0)
+	TAGKEYS(                        XK_F2,                      1)
+	TAGKEYS(                        XK_F3,                      2)
+	TAGKEYS(                        XK_F4,                      3)
+	TAGKEYS(                        XK_F5,                      4)
+	TAGKEYS(                        XK_F6,                      5)
+	TAGKEYS(                        XK_F7,                      6)
+	TAGKEYS(                        XK_F8,                      7)
+	TAGKEYS(                        XK_F9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
