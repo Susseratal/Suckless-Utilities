@@ -7,7 +7,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows defau
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=10", "SymbolsNerdFonts:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_white[]       = "#FFFFFF";
 static const char col_gray1[]       = "#222222";
@@ -45,13 +45,15 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+#include "grid.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+	{ "[T]=",     tile },    /* first entry is default */
+        { "[G]",      grid },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
@@ -59,7 +61,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
-	{ 0,                            KEY,      view,           {.ui = 1 << TAG} }, \
+	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
@@ -75,16 +77,17 @@ static const char *termcmd[] = { "st", NULL };
 static const char *browser[] = { "opera", NULL };
 static const char *discord[] = { "discord", NULL };
 static const char *keepass[] = { "keepassxc", NULL };
-static const char *screenshot[] = { "scrot", NULL };
+static const char *screenshot[] = { "spectacle", NULL };
 static const char *gotop[] = { "st", "gotop", NULL };
 static const char *music[] = { "st", "python", "/home/iain/Programming/ncmusic/src/main.py" };
-static const char *dwmbar[] = { "/home/iain/Shell/dwmbar.sh", NULL };
+static const char *dwmbar[] = { "/home/iain/Programming/Shell/dwmbar", NULL };
 static const char *upvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL};
 static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL};
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *setvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "100%", NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "0%", NULL };
 static const char *setkbdon[] = { "brightnessctl", "--device='smc::kbd_backlight'", "set", "255", NULL };
 static const char *setkbdoff[] = { "brightnessctl", "--device='smc::kbd_backlight'", "set", "0", NULL };
+
+#include "selfrestart.c"
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -98,7 +101,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      spawn,          {.v = music} },
 	{ MODKEY,                       XK_g,      spawn,          {.v = gotop} },
 	{ MODKEY,                       XK_v,      togglebar,      {0} },
-	{ MODKEY,                       XK_n,      spawn,          {.v = nemo} },
 	{ MODKEY|ShiftMask,             XK_v,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -106,22 +108,21 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_F1,     spawn,          {.v = setvol } },
-	{ MODKEY,                       XK_F1,     spawn,          {.v = dwmbar } },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = downvol} },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = dwmbar } },
-	{ MODKEY,                       XK_F3,     spawn,          {.v = upvol} },
-	{ MODKEY,                       XK_F3,     spawn,          {.v = dwmbar } },
-	{ MODKEY,                       XK_F4,     spawn,          {.v = mutevol} },
-	{ MODKEY,                       XK_F4,     spawn,          {.v = dwmbar } },
+	{ 0,                            XK_F10,    spawn,          {.v = mutevol} },
+	{ 0,                            XK_F10,    spawn,          {.v = dwmbar } },
+	{ 0,                            XK_F11,    spawn,          {.v = downvol} },
+	{ 0,                            XK_F11,    spawn,          {.v = dwmbar } },
+	{ 0,                            XK_F12,    spawn,          {.v = upvol} },
+	{ 0,                            XK_F12,    spawn,          {.v = dwmbar } },
 	{ MODKEY,                       XK_F5,     spawn,          {.v = setkbdoff } },
 	{ MODKEY,                       XK_F6,     spawn,          {.v = setkbdon } },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[3]} },
 	/*{ MODKEY|ShiftMask,             XK_space,  setlayout,      {0} },*/
 	/*{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },*/
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -139,6 +140,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_F7,                      6)
 	TAGKEYS(                        XK_F8,                      7)
 	TAGKEYS(                        XK_F9,                      8)
+    { MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
